@@ -2,7 +2,7 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -15,6 +15,10 @@ let buttonState = false;
 io.on('connection', socket => {
     console.log('New Connection');
 
+    socket.on('message',(message)=>{
+        console.log(message);
+    })
+
     io.to(socket.id).emit('buttonState', buttonState);
 
     socket.on('disconnect', () => {
@@ -26,6 +30,8 @@ io.on('connection', socket => {
         buttonState = value;
         socket.broadcast.emit('buttonState', value);
     });
+
+
 });
 
 httpServer.listen(PORT, () => {
