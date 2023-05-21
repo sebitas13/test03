@@ -13,9 +13,21 @@
         <script src="/socket.io/socket.io.js"></script>
     </head>
     <body>
-        <div class="app">
-            <button id="toggleBtn">Button</button>
+        
+
+        <div class="container">
+            <h2>Implementando Websockets con Node.js</h2>
+            <div class="app">
+                <button id="toggleBtn">Button</button>
+            </div>
+            <div class="row mt-4">
+                <div class="col-sm-6" style="background-color: black; color: white;">
+                    <label class="form-label">Mensajes del servidor</label>
+                    <textarea style="color: red;" id="mensajes" rows="10" cols="10" class="form-control"></textarea>
+                </div>
+            </div>
         </div>
+
         <script src="/index.js"></script>
     </body>
 </html>

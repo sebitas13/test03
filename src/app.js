@@ -17,6 +17,7 @@ io.on('connection', socket => {
 
     socket.on('message',(message)=>{
         console.log(message);
+        socket.broadcast.emit('lecturas', JSON.stringify(message));
     })
 
     io.to(socket.id).emit('buttonState', buttonState);

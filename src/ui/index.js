@@ -22,3 +22,8 @@ socket.on('buttonState', state => {
     buttonState = state;
     updateUI();
 });
+
+socket.on("lecturas", evt => {
+    var area=document.getElementById("mensajes");
+    area.innerHTML+=evt + "\n";
+} ) 
